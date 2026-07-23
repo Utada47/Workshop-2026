@@ -9,36 +9,8 @@ use Illuminate\Support\Facades\Log;
 
 class MahasiswaService
 {
-    public function semua(): Collection
+    public function getAllMahasiswa(): Collection
     {
-        return Mahasiswa::orderBy('name')->get();
-    }
-
-    public function detail(int $id): Mahasiswa
-    {
-        return Mahasiswa::findOrFail($id);
-    }
-
-    public function buat(array $data): Mahasiswa
-    {
-        $mahasiswa = Mahasiswa::create($data);
-
-        Log::info("Mahasiswa baru ditambahkan: {$mahasiswa->name} ({$mahasiswa->stambuk})");
-
-        return $mahasiswa;
-    }
-
-    public function perbarui(Mahasiswa $mahasiswa, array $data): Mahasiswa
-    {
-        $mahasiswa->update($data);
-
-        return $mahasiswa->fresh();
-    }
-
-    public function hapus(Mahasiswa $mahasiswa): void
-    {
-        Log::info("Mahasiswa dihapus: {$mahasiswa->name} ({$mahasiswa->stambuk})");
-
-        $mahasiswa->delete();
+        return Mahasiswa;
     }
 }
