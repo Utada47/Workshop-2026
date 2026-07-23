@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('mahasiswas', function (Blueprint $table) {
             $table->id();
+            $table->string('stambuk',20)->unique();
+            $table->string('nama',100);
+            $table->string('jurusan',100);
             $table->timestamps();
         });
     }
