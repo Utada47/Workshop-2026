@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Laravel')</title>
-
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <title>@yield('title', 'Manajemen Data')</title>
 </head>
 <body>
-
-<div class="container mx-auto mt-5">
+    <nav>
+        <a href="{{ route('mahasiswa.index') }}">Mahasiswa</a>
+        |
+        <a href="{{ route('dosen.index') }}">Dosen</a>
+        |
+        <a href="{{ route('matakuliah.index') }}">Matakuliah</a>
+    </nav>
+    <hr>
     @yield('content')
-</div>
-
 </body>
 </html>
