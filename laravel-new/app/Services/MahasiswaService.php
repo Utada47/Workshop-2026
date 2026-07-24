@@ -1,5 +1,4 @@
 <?php
-// app/Services/MahasiswaService.php
 
 namespace App\Services;
 
@@ -12,6 +11,18 @@ class MahasiswaService
     public function semua(): Collection
     {
         return Mahasiswa::orderBy('name')->get();
+    }
+
+    public function cari(?string $keyword): Collection
+    {
+        if (blank($keyword)) {
+            return $this->semua();
+        }
+
+        return Mahasiswa::where('name', 'like', "%{$keyword}%")
+            ->orWhere('jurusan', 'like', "%{$keyword}%")
+            ->orderBy('name')
+            ->get();
     }
 
     public function detail(int $id): Mahasiswa
