@@ -15,7 +15,7 @@
         </div>
 
         <div>
-            <label>Nama Lengkap</label><br>
+            <label>Nama panjang</label><br>
             <input type="text" name="name" value="{{ old('name') }}">
             @error('name') <p>{{ $message }}</p> @enderror
         </div>
